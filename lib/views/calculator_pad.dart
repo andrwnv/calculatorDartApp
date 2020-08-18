@@ -5,6 +5,16 @@ import 'package:calculator_app/misc/app_colors.dart';
 import 'calculator_operator.dart';
 
 class CalculatorPad extends StatelessWidget {
+  final _padItems = [
+    [ 'AC', '+/-', '%' ],
+    [ '7', '8', '9' ],
+    [ '4', '5', '6' ],
+    [ '1', '2', '3' ],
+    [ '.', '0', '00' ],
+  ];
+
+  final _operands = [ '÷', '×', '+', '-' ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,15 +44,10 @@ class CalculatorPad extends StatelessWidget {
                           ),
                           child: Row(
                             children: <Widget>[
-                              CalculatorOperator(
-                                  operator: 'AC', operatorColor: AppColors.operatorColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '+/-', operatorColor: AppColors.operatorColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '%', operatorColor: AppColors.operatorColor
-                              ),
+                              for (var i in _padItems[0])
+                                CalculatorOperator(
+                                    operator: i, operatorColor: AppColors.operatorColor
+                                )
                             ],
                           ),
                         ),
@@ -55,15 +60,10 @@ class CalculatorPad extends StatelessWidget {
                           ),
                           child: Row(
                             children: <Widget>[
-                              CalculatorOperator(
-                                  operator: '7', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '8', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '9', operatorColor: AppColors.numberColor
-                              ),
+                              for (var i in _padItems[1])
+                                CalculatorOperator(
+                                    operator: i, operatorColor: AppColors.operatorColor
+                                )
                             ],
                           ),
                         ),
@@ -76,15 +76,10 @@ class CalculatorPad extends StatelessWidget {
                           ),
                           child: Row(
                             children: <Widget>[
-                              CalculatorOperator(
-                                  operator: '4', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '5', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '6', operatorColor: AppColors.numberColor
-                              ),
+                              for (var i in _padItems[2])
+                                CalculatorOperator(
+                                    operator: i, operatorColor: AppColors.operatorColor
+                                )
                             ],
                           ),
                         ),
@@ -97,15 +92,10 @@ class CalculatorPad extends StatelessWidget {
                           ),
                           child: Row(
                             children: <Widget>[
-                              CalculatorOperator(
-                                  operator: '1', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '2', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '3', operatorColor: AppColors.numberColor
-                              ),
+                              for (var i in _padItems[3])
+                                CalculatorOperator(
+                                    operator: i, operatorColor: AppColors.operatorColor
+                                )
                             ],
                           ),
                         ),
@@ -118,15 +108,10 @@ class CalculatorPad extends StatelessWidget {
                           ),
                           child: Row(
                             children: <Widget>[
-                              CalculatorOperator(
-                                  operator: '.', operatorColor: AppColors.numberColor
-                              ),
-                              CalculatorOperator(
-                                  operator: '0', operatorColor: AppColors.numberColor)
-                              ,
-                              CalculatorOperator(
-                                  operator: '00', operatorColor: AppColors.numberColor
-                              ),
+                              for (var i in _padItems[4])
+                                CalculatorOperator(
+                                    operator: i, operatorColor: AppColors.operatorColor
+                                )
                             ],
                           ),
                         ),
@@ -152,30 +137,13 @@ class CalculatorPad extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(100))),
                   child: Column(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 26.0),
-                        child: CalculatorOperator(
-                            operator: '÷', operatorColor: AppColors.operatorColor
+                      for (var i in _operands)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 26.0),
+                          child: CalculatorOperator(
+                              operator: '÷', operatorColor: AppColors.operatorColor
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 35.0),
-                        child: CalculatorOperator(
-                            operator: '×', operatorColor: AppColors.operatorColor
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 35.0),
-                        child: CalculatorOperator(
-                            operator: '-', operatorColor: AppColors.operatorColor
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 35.0),
-                        child: CalculatorOperator(
-                            operator: '+', operatorColor: AppColors.operatorColor
-                        ),
-                      ),
                       Container(
                           decoration: BoxDecoration(
                               gradient: AppColors.backgroundGreenGradient,
